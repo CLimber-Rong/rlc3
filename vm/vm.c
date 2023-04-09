@@ -31,38 +31,22 @@ int getFileSize(FILE* fp) {
 }
 
 int main(int argc, char* argv[]) {
+	if(argc!=2) {
+		printf("Error: bad arguments");
+		return 0;
+	}
 
-//	if(argc!=2) {
-//		printf("Error: bad arguments");
-//		return 0;
-//	}
-//
-//	IO_INIT(argc, argv);
-//	IO_BIND();
-//
-//	FILE* fp = fopen(argv[1], "r");
-//	int fsize = getFileSize(fp);
-//	cmd_code = (char*)calloc(sizeof(char), fsize);
-//	fread(cmd_code, sizeof(char), fsize, fp);
-//
-//	BCODE_INIT(cmd_code);
-//
-//	bc_execute(0);
-//
-//	return 0;
-	mem[0] = 1145;
-	mem[43] = 14;
-	mem[1919] = 1919;
-	mem[810] = 810;
-	printf("%d\n", CompareMemFormat(mem));
-	FILE* fp;
-	
-	fp = fopen("mem.img", "w");
-	WriteMemToken(fp, mem);
-	fclose(fp);
-	
-	fp = fopen("mem.img", "r");
-	GetMemToken(fp, mem);
-	printf("%d\n", mem[43]);
-	fclose(fp);
+	IO_INIT(argc, argv);
+	IO_BIND();
+
+	FILE* fp = fopen(argv[1], "r");
+	int fsize = getFileSize(fp);
+	cmd_code = (char*)calloc(sizeof(char), fsize);
+	fread(cmd_code, sizeof(char), fsize, fp);
+
+	BCODE_INIT(cmd_code);
+
+	bc_execute(0);
+
+	return 0;
 }
