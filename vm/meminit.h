@@ -1,3 +1,12 @@
+/*
+	Name: meminit.h 
+	Copyright: GPL3.0
+	Author: 瞿相荣 
+	Date: 09/04/23 14:14
+	Description: 内存初始化 
+*/
+
+
 #ifndef RLC3_memoryINIT_H
 #define RLC3_memoryINT_H
 
@@ -14,22 +23,6 @@
 	 * 这也就意味着，有些情况下，内存描述文件容量是大于1sizeof(uint16)8kb的，此时内存镜像才是明智的选择
  * 为此，我将提供内存描述文件、内存镜像的存储功能，并提供比较两者大小的函数
  */
-
-//这段代码不知道有没有用，没有就删掉
-//enum {
-//    token_number = 0, token_zero
-//} token_type;
-//
-//typedef struct {
-//	token_type;
-//	int info;			//如果是内存碎片token，则info用来储存内存碎片大小
-//} memoryToken;
-
-//typedef struct memoryTokenListStruct {
-//	//因为内存描述文件是一串一旦确定就不会更改的不定长列表，所以用链表最为合适了
-//	MemToken token;
-//	struct memoryTokenListStruct* next;
-//} memoryTokenList;
 
 int GetMemImage(FILE* fp, uint16* memory) {
 	return fread(memory, sizeof(uint16), 64*1024, fp);
