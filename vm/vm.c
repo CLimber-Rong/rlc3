@@ -108,35 +108,3 @@ int main(int argc, char* argv[]) {
 }
 
 #endif
-
-//9 0 0 2 0 0 9 0 1 2 0 72 22 0 0 0 1
-//9 0 0 2 0 0 9 0 1 2 0 101 22 0 0 0 1
-//9 0 0 2 0 0 9 0 1 2 0 108 22 0 0 0 1
-//9 0 0 2 0 0 9 0 1 2 0 108 22 0 0 0 1
-//9 0 0 2 0 0 9 0 1 2 0 111 22 0 0 0 1 20
-
-//char cmd_code[] = {
-//	OP_MOV, 0, R_R0, num_type, 0, 0,
-//	OP_MOV, 0, R_R1, num_type, 0, 72,
-//	OP_OUT, 0, R_R0, 0, R_R1,
-//	OP_RET
-//};
-
-//	if(argc!=2) {
-//		printf("Error: bad arguments");
-//		return 0;
-//	}
-//
-//	IO_INIT(argc, argv);
-//	IO_BIND();
-//
-//	FILE* fp = fopen(argv[1], "r");
-//	int fsize = getFileSize(fp);
-//	cmd_code = (char*)calloc(sizeof(char), fsize);
-//	fread(cmd_code, sizeof(char), fsize, fp);
-//
-//	BCODE_INIT(cmd_code);
-//
-//	bc_execute(0);
-//
-//	return 0;
