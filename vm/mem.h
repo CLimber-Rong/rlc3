@@ -6,8 +6,8 @@
 	Description: 存储器 
 */
 
-#ifndef RLC3_memory_H
-#define RLC3_memory_H
+#ifndef RLC3_MEM_H
+#define RLC3_MEM_H
 
 
 //模拟存储器
@@ -16,14 +16,14 @@ typedef unsigned short uint16;
 #define UINT16_MAX 65536
 
 /*如果你想要更改内存、栈的容量配置，请更改这里*/
-#define mem_MAX UINT16_MAX			//默认128Kb
+#define MEM_MAX UINT16_MAX			//默认128Kb
 #define STACK_MAX UINT16_MAX 		//默认128Kb 
 #define PC_STACK_MAX 1024*1024/4	//默认1Mb 
 /*----------*/
 
 enum {
     mem_type = 0, reg_type, num_type			//mem_type似乎没用，先搁置，如果真的没用后期就删掉 
-} memory_Type;
+} mem_Type;
 
 enum {
     //八个通用寄存器（r0~r7）
@@ -47,7 +47,7 @@ enum {
 
 uint16 reg[R_COUNT] = {0};						//寄存器
 uint16 stack[STACK_MAX] = {0};					//内存栈
-uint16 mem[mem_MAX] = {0};						//内存
+uint16 mem[MEM_MAX] = {0};						//内存
 unsigned int pc_stack[PC_STACK_MAX] = {0};		//函数栈
 unsigned int stack_len = 0;			//栈长度
 unsigned int pc_stack_len = 0;		//函数栈长度
